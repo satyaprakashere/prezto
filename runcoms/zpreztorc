@@ -40,10 +40,10 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'python' \
   'haskell' \
-  'syntax-highlighting' \
   'tmux' \
   'utility' \
   'prompt'
+#'syntax-highlighting' \
 
 #
 # Autosuggestions
