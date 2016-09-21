@@ -22,6 +22,7 @@ setopt RM_STAR_WAIT
 #alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias emacs='emacs -nw'
 alias ls='ls -FG'
+alias locate='mdfind'
 alias cc='clang++ -std=c++14'
 alias subl='open -a Sublime\ Text'
 alias scheme="rlwrap -r -c -f ~/dotfiles/scheme/mit_scheme_bindings.txt scheme"
@@ -30,9 +31,12 @@ alias zshrc='vim ~/.zshrc'
 alias shellrc='vim ~/.shellrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.nvimrc'
-
 alias ecask=/usr/local/opt/cask/bin/cask
 
+# if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+# export JENV_ROOT=/usr/local/var/jenv
+
+#eval $(thefuck --alias) // slowing down zsh
 # Exports
 export EDITOR='vim'
 export HOMEBREW_EDITOR='vim'
@@ -48,6 +52,13 @@ export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 
 export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.2/antlr-4.5.2-complete.jar:$CLASSPATH"
 
+# VIM for command line editing
+bindkey -v
+bindkey -M viins ‘jk’ vi-cmd-mode
+
+# autojump configuration
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 #export RBENV_ROOT=/usr/local/var/rbenv
 #export PATH=$(brew --prefix ruby)/bin:$PATH
 #export PATH=/usr/local/bin:$PATH
@@ -57,7 +68,5 @@ export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.2/antlr-4.5.2-complete.jar:$CLAS
 #test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #source ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
-#[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

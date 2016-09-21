@@ -34,7 +34,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'directory' \
   'spectrum' \
-  'completion' \
   'homebrew' \
   'osx' \
   'git' \
@@ -44,6 +43,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'prompt'
 #'syntax-highlighting' \
+  # 'completion' \
 
 #
 # Autosuggestions
