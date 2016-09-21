@@ -1,4 +1,5 @@
 *.zwc
 *.zwc.old
+.DS_Store
 modules/*/cache.zsh
 contrib
