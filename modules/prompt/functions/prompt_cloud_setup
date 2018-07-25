@@ -73,6 +73,14 @@ function prompt_cloud_preview {
   fi
 }
 
+# Check for activated virtualenv
+if (( $+functions[python-info] )); then
+  python-info
+fi
+
+# %v - virtualenv name.
+zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
+
 function prompt_cloud_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
@@ -114,6 +122,7 @@ function prompt_cloud_setup {
     'rprompt' ''
 
   # Define prompts.
+  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}$python_info[virtualenv] ${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
   PROMPT='%B%F{$primary_color}${prefix}%f%b  %B%F{$secondary_color}%c%f%b ${git_info:+${(e)git_info[prompt]}} '
   RPROMPT=''
 }

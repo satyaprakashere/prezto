@@ -33,10 +33,16 @@ setopt NO_CASE_GLOB
 setopt +o nomatch
 
 # Aliases
+#alias zshconfig="mate ~/.zshrc"
+#alias ohmyzsh="mate ~/.oh-my-zsh"
+alias emacss='emacsclient -c -a ""'
+alias emacs25='XLIB_SKIP_ARGB_VISUALS=1 emacs'
+alias emacs='emacs25'
+alias killemacs='emacsclient -e "(kill-emacs)"'
 alias ls='ls -FG'
-alias locate='mdfind'
+#alias locate='mdfind'
 alias cc='clang++ -std=c++14'
-alias subl='open -a Sublime\ Text'
+#alias subl='open -a Sublime\ Text'
 alias scheme="rlwrap -r -c -f ~/dotfiles/scheme/mit_scheme_bindings.txt scheme"
 
 alias zshrc='vim ~/.zshrc'
@@ -44,6 +50,10 @@ alias shellrc='vim ~/.shellrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.nvimrc'
 alias ecask=/usr/local/opt/cask/bin/cask
+alias open=pantheon-files 2>/dev/null
+alias ds='xset dpms force off'
+alias pip=pip2
+#alias brew='sudo apt-get'
 
 # if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 # export JENV_ROOT=/usr/local/var/jenv
@@ -54,19 +64,18 @@ export EDITOR='vim'
 export HOMEBREW_EDITOR='vim'
 export ALTERNATE_EDITOR='vi'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export JBOSS_HOME=/home/satya/syncron-wildfly-9.0.2.final/jboss-as
 
 # for homebrew packages
-export PATH=$PATH:~/.cabal/bin
-export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
-
-export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.3/antlr-4.5.3-complete.jar:$CLASSPATH"
+#export PATH=$PATH:~/.cabal/bin
+#export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 
 # VIM for command line editing
 bindkey -v
 bindkey -M viins ‘jk’ vi-cmd-mode
 
-# autojump configuration
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+export PATH=$HOME/node/bin:$PATH
+export PATH=/snap/bin:$PATH
 
 #export RBEN=aV_ROOT=/usr/local/var/rbenv
 #export PATH=$(brew --prefix ruby)/bin:$PATH
@@ -128,4 +137,3 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PATH=$PATH:~/.cargo/bin
 
-alias antlr5='sh ~/Downloads/generate.sh'
