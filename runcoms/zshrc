@@ -5,6 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Tmux daemon for fast startup
 if [[ -z "$TMUX" ]] ;then
     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
@@ -20,7 +21,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
 prompt cloud '⚡'
 
 # 10 second wait if you do something that will delete everything....
@@ -29,12 +29,10 @@ setopt RM_STAR_WAIT
 # Case insensitive globbing
 setopt NO_CASE_GLOB
 
+# No need for quotes on command line arguments
 setopt +o nomatch
 
 # Aliases
-#alias zshconfig="mate ~/.zshrc"
-#alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias emacs='emacs -nw'
 alias ls='ls -FG'
 alias locate='mdfind'
 alias cc='clang++ -std=c++14'
@@ -56,9 +54,6 @@ export EDITOR='vim'
 export HOMEBREW_EDITOR='vim'
 export ALTERNATE_EDITOR='vi'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-# export http_proxy=http://10.3.100.207:8080
-# export https_proxy=http://10.3.100.207:8080
 
 # for homebrew packages
 export PATH=$PATH:~/.cabal/bin
