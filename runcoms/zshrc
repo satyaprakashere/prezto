@@ -5,6 +5,15 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+if [[ -z "$TMUX" ]] ;then
+    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -16,6 +25,11 @@ prompt cloud '⚡'
 
 # 10 second wait if you do something that will delete everything....
 setopt RM_STAR_WAIT
+
+# Case insensitive globbing
+setopt NO_CASE_GLOB
+
+setopt +o nomatch
 
 # Aliases
 #alias zshconfig="mate ~/.zshrc"
@@ -70,3 +84,51 @@ bindkey -M viins ‘jk’ vi-cmd-mode
 #source ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+. /usr/share/autojump/autojump.zsh
+
+# ----------------------
+# Git Aliases
+# ----------------------
+alias gita='git add'
+alias gitaa='git add .'
+alias gitaaa='git add --all'
+alias gitau='git add --update'
+alias gitb='git branch'
+alias gitbd='git branch --delete '
+alias gitc='git commit'
+alias gitca='git commit --amend'
+alias gitcm='git commit --message'
+alias gitcf='git commit --fixup'
+alias gitck='git checkout'
+alias gitckb='git checkout -b'
+alias gitcom='git checkout master'
+alias gitcos='git checkout staging'
+alias gitcod='git checkout develop'
+alias gitd='git diff'
+alias gitdh='git diff HEAD'
+alias giti='git init'
+alias gitl='git log'
+alias gitlg='git log --graph --oneline --decorate --all'
+alias gitld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gitm='git merge --no-ff'
+alias gitma='git merge --abort'
+alias gitmc='git merge --continue'
+alias gitp='git pull'
+alias gitpr='git pull --rebase'
+alias gitprom='git pull --rebase origin master'
+alias gitr='git rebase'
+alias gits='git status'
+alias gitss='git status --short'
+alias gitst='git stash'
+alias gitsta='git stash apply'
+alias gitstd='git stash drop'
+alias gitstl='git stash list'
+alias gitstp='git stash pop'
+alias gitsts='git stash save'
+
+
+# Python virtualenv configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+export PATH=$PATH:~/.cargo/bin
