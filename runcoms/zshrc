@@ -57,14 +57,14 @@ export HOMEBREW_EDITOR='vim'
 export ALTERNATE_EDITOR='vi'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-export http_proxy=http://10.3.100.207:8080
-export https_proxy=http://10.3.100.207:8080
+# export http_proxy=http://10.3.100.207:8080
+# export https_proxy=http://10.3.100.207:8080
 
 # for homebrew packages
 export PATH=$PATH:~/.cabal/bin
 export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 
-export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.2/antlr-4.5.2-complete.jar:$CLASSPATH"
+export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.3/antlr-4.5.3-complete.jar:$CLASSPATH"
 
 # VIM for command line editing
 bindkey -v
@@ -73,7 +73,7 @@ bindkey -M viins ‘jk’ vi-cmd-mode
 # autojump configuration
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-#export RBENV_ROOT=/usr/local/var/rbenv
+#export RBEN=aV_ROOT=/usr/local/var/rbenv
 #export PATH=$(brew --prefix ruby)/bin:$PATH
 #export PATH=/usr/local/bin:$PATH
 
@@ -132,3 +132,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PATH=$PATH:~/.cargo/bin
+
+alias antlr5='sh ~/Downloads/generate.sh'

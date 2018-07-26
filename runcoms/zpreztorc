@@ -34,16 +34,16 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'directory' \
   'spectrum' \
+  'utility' \
+  'completion' \
   'homebrew' \
   'osx' \
   'git' \
   'python' \
   'haskell' \
   'tmux' \
-  'utility' \
   'prompt'
 #'syntax-highlighting' \
-  # 'completion' \
 
 #
 # Autosuggestions
