@@ -32,18 +32,24 @@ setopt NO_CASE_GLOB
 # No need for quotes on command line arguments
 setopt +o nomatch
 
+# Disable shell scroll lock
+stty -ixon
+
 # Aliases
 #alias zshconfig="mate ~/.zshrc"
 #alias ohmyzsh="mate ~/.oh-my-zsh"
-alias emacss='emacsclient -c -a ""'
-alias emacs25='XLIB_SKIP_ARGB_VISUALS=1 emacs'
-alias emacs='emacs25'
-alias killemacs='emacsclient -e "(kill-emacs)"'
+alias emacs='XLIB_SKIP_ARGB_VISUALS=1 emacsclient -c -a ""'
+#alias emacss='~/.emacss'
+#alias emacs='XLIB_SKIP_ARGB_VISUALS=1 emacs26'
+alias kemacs='XLIB_SKIP_ARGB_VISUALS=1 emacsclient -e "(kill-emacs)"'
+alias enw='emacs -nw'
 alias ls='ls -FG'
 #alias locate='mdfind'
 alias cc='clang++ -std=c++14'
 #alias subl='open -a Sublime\ Text'
 alias scheme="rlwrap -r -c -f ~/dotfiles/scheme/mit_scheme_bindings.txt scheme"
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
 
 alias zshrc='vim ~/.zshrc'
 alias shellrc='vim ~/.shellrc'
@@ -81,7 +87,7 @@ export PATH=/snap/bin:$PATH
 #export PATH=$(brew --prefix ruby)/bin:$PATH
 #export PATH=/usr/local/bin:$PATH
 
-#export PATH="$HOME/.cask/bin:$PATH"
+export PATH="$HOME/.cask/bin:$PATH"
 
 #test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -137,3 +143,4 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PATH=$PATH:~/.cargo/bin
 
+alias python="/usr/bin/python3.5"
