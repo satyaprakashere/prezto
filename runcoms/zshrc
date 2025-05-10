@@ -35,31 +35,30 @@ setopt +o nomatch
 # Aliases
 alias ls='ls -FG'
 alias locate='mdfind'
-alias cc='clang++ -std=c++14'
+alias cc='clang++ -std=c++17'
 alias subl='open -a Sublime\ Text'
-alias scheme="rlwrap -r -c -f ~/dotfiles/scheme/mit_scheme_bindings.txt scheme"
 
 alias zshrc='vim ~/.zshrc'
 alias shellrc='vim ~/.shellrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.nvimrc'
-alias ecask=/usr/local/opt/cask/bin/cask
 
-# if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-# export JENV_ROOT=/usr/local/var/jenv
-
-#eval $(thefuck --alias) // slowing down zsh
 # Exports
 export EDITOR='vim'
 export HOMEBREW_EDITOR='vim'
-export ALTERNATE_EDITOR='vi'
+export ALTERNATE_EDITOR='emacs'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # for homebrew packages
-export PATH=$PATH:~/.cabal/bin
-export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
+export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH=:~/.cabal/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+export PATH=/Users/satya/.ghcup/bin:$PATH
 
-export CLASSPATH=".:/usr/local/Cellar/antlr/4.5.3/antlr-4.5.3-complete.jar:$CLASSPATH"
+# Python virtualenv configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
 
 # VIM for command line editing
 bindkey -v
@@ -68,17 +67,7 @@ bindkey -M viins ‘jk’ vi-cmd-mode
 # autojump configuration
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-#export RBEN=aV_ROOT=/usr/local/var/rbenv
-#export PATH=$(brew --prefix ruby)/bin:$PATH
-#export PATH=/usr/local/bin:$PATH
-
-#export PATH="$HOME/.cask/bin:$PATH"
-
-#test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-#source ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 . /usr/share/autojump/autojump.zsh
 
 # ----------------------
@@ -122,10 +111,18 @@ alias gitstp='git stash pop'
 alias gitsts='git stash save'
 
 
-# Python virtualenv configuration
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-export PATH=$PATH:~/.cargo/bin
+# ----------------------
+#   functions
+# ----------------------
+##? pfd - Print the frontmost Finder directory.
+function pfd {
+osascript 2> /dev/null <<EOF
+  tell application "Finder"
+    return POSIX path of (target of first window as text)
+  end tell
+EOF
+}
 
-alias antlr5='sh ~/Downloads/generate.sh'
+# cdf
+alias cdf='cd $(pfd)'

@@ -3,3 +3,5 @@
 .DS_Store
 modules/*/cache.zsh
 contrib
+.DS_Store
+
