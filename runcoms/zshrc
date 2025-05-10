@@ -4,6 +4,9 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+#
+
+export PATH=/opt/homebrew/bin:$PATH
 
 # Tmux daemon for fast startup
 if [[ -z "$TMUX" ]] ;then
@@ -33,17 +36,9 @@ setopt NO_CASE_GLOB
 # No need for quotes on command line arguments
 setopt +o nomatch
 
+#-----------------------
 # Aliases
-=======
-git config --global core.editor vim
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-# Aliases
-alias pip=pip3
-alias python=python3
-
-#alias emacs='emacs -nw'
->>>>>>> bf6c13d ([update] update for 2025)
+#-----------------------
 alias ls='ls -FG'
 alias locate='mdfind'
 alias cc='clang++ -std=c++17'
@@ -54,32 +49,35 @@ alias shellrc='vim ~/.shellrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.nvimrc'
 
+alias ems='emacs --daemon'
+alias em='emacsclient -nw'
+alias emw='emacsclient -c -n'
+
 # Exports
 export EDITOR='vim'
 export HOMEBREW_EDITOR='vim'
 export ALTERNATE_EDITOR='emacs'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-<<<<<<< HEAD
 # for homebrew packages
-=======
-export PATH=/Users/satya/.config/emacs/bin:$PATH
-export PATH=/Users/satya/.ghcup/bin:$PATH
-export PATH=/Users/satya/local/roc_nightly:$PATH
-
-
-#export PATH="$HOME/.cask/bin:$PATH"
-
-#test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
->>>>>>> bf6c13d ([update] update for 2025)
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+
 export PATH=:~/.cabal/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
 export PATH=/Users/satya/.ghcup/bin:$PATH
+export PATH=/Users/satya/.config/emacs/bin:$PATH
+export PATH=/Users/satya/local/roc_nightly:$PATH
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH=$(brew --prefix llvm@18)/bin:$PATH
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export LLVM_SYS_180_PREFIX=$(brew --prefix llvm@18)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
 
 # Python virtualenv configuration
 export WORKON_HOME=$HOME/.virtualenvs
@@ -99,6 +97,8 @@ bindkey -M viins ‘jk’ vi-cmd-mode
 # ----------------------
 # Git Aliases
 # ----------------------
+git config --global core.editor vim
+
 alias gita='git add'
 alias gitaa='git add .'
 alias gitaaa='git add --all'
@@ -152,8 +152,6 @@ EOF
 
 # cdf
 alias cdf='cd $(pfd)'
-<<<<<<< HEAD
-=======
 
 
 # BEGIN opam configuration
@@ -190,4 +188,3 @@ export LLVM_SYS_180_PREFIX=$(brew --prefix llvm@18)
 alias ems='emacs --daemon'
 alias em='emacsclient -nw'
 alias emw='emacsclient -c -n'
->>>>>>> bf6c13d ([update] update for 2025)
