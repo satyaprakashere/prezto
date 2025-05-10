@@ -29,7 +29,6 @@ prompt cloud '⚡'
 # 10 second wait if you do something that will delete everything....
 setopt RM_STAR_WAIT
 
-<<<<<<< HEAD
 # Case insensitive globbing
 setopt NO_CASE_GLOB
 
@@ -89,10 +88,11 @@ bindkey -v
 bindkey -M viins ‘jk’ vi-cmd-mode
 
 # autojump configuration
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. /usr/share/autojump/autojump.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#. /usr/share/autojump/autojump.zsh
+#[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # ----------------------
 # Git Aliases
