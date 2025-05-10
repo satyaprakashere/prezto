@@ -17,21 +17,15 @@ fi
 # Editors
 #
 
-<<<<<<< HEAD
-export EDITOR='vi'
-export VISUAL='vim'
-export PAGER='less'
-=======
 if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nano'
+  export EDITOR='vim'
 fi
 if [[ -z "$VISUAL" ]]; then
-  export VISUAL='nano'
+  export VISUAL='vim'
 fi
 if [[ -z "$PAGER" ]]; then
   export PAGER='less'
 fi
->>>>>>> upstream/master
 
 #
 # Language

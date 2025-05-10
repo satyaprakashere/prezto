@@ -39,16 +39,12 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-<<<<<<< HEAD
   'homebrew' \
   'osx' \
   'git' \
   'python' \
   'haskell' \
   'tmux' \
-=======
-  'history-substring-search' \
->>>>>>> upstream/master
   'prompt'
 #'syntax-highlighting' \
 
