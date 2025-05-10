@@ -26,6 +26,7 @@ prompt cloud '⚡'
 # 10 second wait if you do something that will delete everything....
 setopt RM_STAR_WAIT
 
+<<<<<<< HEAD
 # Case insensitive globbing
 setopt NO_CASE_GLOB
 
@@ -33,6 +34,16 @@ setopt NO_CASE_GLOB
 setopt +o nomatch
 
 # Aliases
+=======
+git config --global core.editor vim
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# Aliases
+alias pip=pip3
+alias python=python3
+
+#alias emacs='emacs -nw'
+>>>>>>> bf6c13d ([update] update for 2025)
 alias ls='ls -FG'
 alias locate='mdfind'
 alias cc='clang++ -std=c++17'
@@ -49,7 +60,22 @@ export HOMEBREW_EDITOR='vim'
 export ALTERNATE_EDITOR='emacs'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+<<<<<<< HEAD
 # for homebrew packages
+=======
+export PATH=/Users/satya/.config/emacs/bin:$PATH
+export PATH=/Users/satya/.ghcup/bin:$PATH
+export PATH=/Users/satya/local/roc_nightly:$PATH
+
+
+#export PATH="$HOME/.cask/bin:$PATH"
+
+#test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+>>>>>>> bf6c13d ([update] update for 2025)
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=:~/.cabal/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
@@ -126,3 +152,42 @@ EOF
 
 # cdf
 alias cdf='cd $(pfd)'
+<<<<<<< HEAD
+=======
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/satya/.opam/opam-init/init.zsh' ]] || source '/Users/satya/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+#
+
+# fuzzy search config
+source <(fzf --zsh)
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+
+if [ "$TMUX" = "" ]; then tmux; fi
+# Kill all tmux sessions that are not currently attached
+alias tc='tmux ls 2>/dev/null | awk "\$2 != \"attached\" {print \$1}" | xargs -r -n1 tmux kill-session -t'
+
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH=$(brew --prefix llvm@18)/bin:$PATH
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export LLVM_SYS_180_PREFIX=$(brew --prefix llvm@18)
+
+alias ems='emacs --daemon'
+alias em='emacsclient -nw'
+alias emw='emacsclient -c -n'
+>>>>>>> bf6c13d ([update] update for 2025)
